@@ -35,6 +35,7 @@ const Input: React.FC<InputProps> = ({ name, icon, ...rest }) => {
     <Container>
       <Icon name={icon} size={20} color="#666360" />
       <TextInput
+        ref={inputElementRef}
         placeholderTextColor="#666360"
         defaultValue={defaultValue}
         onChangeText={value => {
