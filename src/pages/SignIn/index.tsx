@@ -40,7 +40,9 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
 
-  const { signIn } = useAuth();
+  const { signIn, user } = useAuth();
+
+  console.log(user);
 
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
@@ -61,8 +63,6 @@ const SignIn: React.FC = () => {
         });
 
         await signIn({ email: data.email, password: data.password });
-
-        // history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
